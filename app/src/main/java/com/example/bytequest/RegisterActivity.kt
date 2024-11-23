@@ -1,5 +1,6 @@
 package com.example.bytequest
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -82,6 +83,9 @@ class RegisterActivity : AppCompatActivity() {
                         runOnUiThread {
                             Toast.makeText(this@RegisterActivity, "회원가입 성공: $responseBody", Toast.LENGTH_SHORT).show()
                         }
+                        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     } else {
                         runOnUiThread {
                             Toast.makeText(this@RegisterActivity, "회원가입 실패: $responseBody", Toast.LENGTH_SHORT).show()

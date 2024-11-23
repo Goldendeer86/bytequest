@@ -25,10 +25,12 @@ class SelectClustActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select_sub)
+        setContentView(R.layout.activity_select_clust)
 
         // Button에 접근합니다
+
         val selectBtn = findViewById<Button>(R.id.select_btn)
+        val questionRegisterBtn = findViewById<Button>(R.id.question_register_btn)
 
         // 인텐트를 가져옵니다
         val intent = getIntent()
@@ -91,6 +93,13 @@ class SelectClustActivity : AppCompatActivity() {
             intent.putExtra("clusterIDs", selected_clusterIDs.joinToString(","))
             // Intent에 username 값을 추가합니다
             intent.putExtra("username", username)
+            intent.putExtra("SID", SID)
+            startActivity(intent)
+        }
+
+
+        questionRegisterBtn.setOnClickListener {
+            val intent = Intent(this, QuestionRegisterActivity::class.java)
             intent.putExtra("SID", SID)
             startActivity(intent)
         }
